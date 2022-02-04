@@ -55,17 +55,18 @@ class Search extends React.Component {
         <h1>Buscar</h1>
         {loading ? <Loading /> : form}
         {hasAlbum ? <p>{found}</p> : <p>{nFound}</p>}
-        <section>
+        <ol>
           {albuns.map(({ collectionId, collectionName }) => (
-            <Link
-              data-testid={ `link-to-album-${collectionId}` }
-              to={ `album/${collectionId}` }
-              key={ collectionId }
-            >
-              {collectionName}
-            </Link>
+            <li key={ collectionId }>
+              <Link
+                data-testid={ `link-to-album-${collectionId}` }
+                to={ `album/${collectionId}` }
+              >
+                {collectionName}
+              </Link>
+            </li>
           ))}
-        </section>
+        </ol>
       </div>
     );
   }
