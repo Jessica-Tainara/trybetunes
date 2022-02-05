@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -10,6 +11,7 @@ class Album extends React.Component {
 
     this.state = {
       musics: [{ artistName: '', collectionName: '' }],
+      favoritas: [],
     };
   }
 
@@ -18,11 +20,12 @@ class Album extends React.Component {
     const id = href[href.length - 1];
     this.setState({ loading: true });
     const musicas = await getMusics(id);
-    this.setState({ musics: musicas, loading: false });
+    const favoritas = await getFavoriteSongs();
+    this.setState({ musics: musicas, loading: false, favoritas });
   }
 
   render() {
-    const { loading, musics } = this.state;
+    const { loading, musics, favoritas } = this.state;
     const { artistName, collectionName } = musics[0];
     const alb = (
       <div>
@@ -31,7 +34,7 @@ class Album extends React.Component {
         <ol>
           {musics.map((music, i) => {
             const { trackId, trackName, previewUrl } = music;
-            const prop = { music, trackId, trackName, previewUrl };
+            const prop = { favoritas, music, trackId, trackName, previewUrl };
             return (i > 0 && <li key={ i }><MusicCard { ...prop } /></li>);
           })}
         </ol>
