@@ -14,7 +14,7 @@ class Album extends React.Component {
   }
 
   async componentDidMount() {
-    const href = window.location.href.split('/');
+    const href = window.location.href.split('album/');
     const id = href[href.length - 1];
     this.setState({ loading: true });
     const musicas = await getMusics(id);
@@ -29,8 +29,9 @@ class Album extends React.Component {
         <h1 data-testid="artist-name">{artistName}</h1>
         <h2 data-testid="album-name">{collectionName}</h2>
         <ol>
-          {musics.map(({ trackId, trackName, previewUrl }, i) => {
-            const prop = { trackId, trackName, previewUrl };
+          {musics.map((music, i) => {
+            const { trackId, trackName, previewUrl } = music;
+            const prop = { music, trackId, trackName, previewUrl };
             return (i > 0 && <li key={ i }><MusicCard { ...prop } /></li>);
           })}
         </ol>
