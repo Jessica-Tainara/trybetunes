@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -20,8 +19,7 @@ class Album extends React.Component {
     const id = href[href.length - 1];
     this.setState({ loading: true });
     const musicas = await getMusics(id);
-    const favoritas = await getFavoriteSongs();
-    this.setState({ musics: musicas, loading: false, favoritas });
+    this.setState({ musics: musicas, loading: false });
   }
 
   render() {
