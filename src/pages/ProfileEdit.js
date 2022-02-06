@@ -54,7 +54,7 @@ class ProfileEdit extends React.Component {
             onChange={ ({ target }) => { this.setState({ image: target.value }); } }
           />
           <button
-            disabled={ name === '' && description === '' && image === '' }
+            disabled={ name === '' || description === '' || image === '' }
             type="submit"
             data-testid="edit-button-save"
             onClick={ async () => {
