@@ -9,11 +9,11 @@ class Header extends React.Component {
 
     this.state = {
       name: '',
+      loading: true,
     };
   }
 
   async componentDidMount() {
-    this.setState({ loading: true });
     await getUser()
       .then((data) => {
         this.setState({ name: data.name, loading: false });

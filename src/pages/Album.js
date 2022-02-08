@@ -3,12 +3,14 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
     super();
 
     this.state = {
+      loading: true,
       musics: [{ artistName: '', collectionName: '' }],
       favoritas: [],
     };
@@ -17,9 +19,9 @@ class Album extends React.Component {
   async componentDidMount() {
     const href = window.location.href.split('album/');
     const id = href[href.length - 1];
-    this.setState({ loading: true });
     const musicas = await getMusics(id);
-    this.setState({ musics: musicas, loading: false });
+    const favs = await getFavoriteSongs();
+    this.setState({ favoritas: favs, musics: musicas, loading: false });
   }
 
   render() {
@@ -31,8 +33,21 @@ class Album extends React.Component {
         <h2 data-testid="album-name">{collectionName}</h2>
         <ol>
           {musics.map((music, i) => {
-            const { trackId, trackName, previewUrl } = music;
-            const prop = { favoritas, music, trackId, trackName, previewUrl };
+            const prop = {
+              check: favoritas
+                .some((fav) => fav.trackName === music.trackName),
+              onClickCheckbox:
+                  async () => {
+                    this.setState({ loading: true });
+                    const favs = await getFavoriteSongs();
+                    const fun = favs
+                      .some((fav) => fav.trackName === music.trackName)
+                      ? removeSong : addSong;
+                    await fun(music);
+                    await this.componentDidMount();
+                  },
+              music,
+            };
             return (i > 0 && <li key={ i }><MusicCard { ...prop } /></li>);
           })}
         </ol>

@@ -24,20 +24,17 @@ class Favorites extends React.Component {
     const section = (
       <ol>
         {favoritas.map((music, i) => {
-          const { trackId, trackName, previewUrl } = music;
-          const prop = { music, trackId, trackName, previewUrl };
-          return (
-            <li key={ i }>
-              <MusicCard
-                onClickCheckbox={ async () => {
+          const prop = {
+            check: true,
+            onClickCheckbox:
+                async () => {
                   this.setState({ loading: true });
                   await removeSong(music);
                   await this.componentDidMount();
-                  this.setState({ loading: false });
-                } }
-                { ...prop }
-              />
-            </li>);
+                },
+            music,
+          };
+          return (<li key={ i }><MusicCard { ...prop } /></li>);
         })}
       </ol>);
     return (
