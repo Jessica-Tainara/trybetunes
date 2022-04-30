@@ -7,7 +7,6 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <p>TrybeTunes</p>
           <Content />
         </div>
       </BrowserRouter>

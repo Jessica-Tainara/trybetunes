@@ -50,23 +50,31 @@ class Search extends React.Component {
     );
 
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" id="page-search">
         <Header />
-        <h1>Buscar</h1>
-        {loading ? <Loading /> : form}
-        {hasAlbum ? <p>{found}</p> : <p>{nFound}</p>}
-        <ol>
-          {albuns.map(({ collectionId, collectionName }) => (
-            <li key={ collectionId }>
+        <div className="page">
+          {loading ? <Loading /> : form}
+          {hasAlbum ? <p>{found}</p> : <p>{nFound}</p>}
+          <div id="cards">
+            {albuns.map(({ collectionId, collectionName, artworkUrl100 }) => (
+
               <Link
+                key={ collectionId }
                 data-testid={ `link-to-album-${collectionId}` }
                 to={ `album/${collectionId}` }
+                className="card"
               >
-                {collectionName}
+                <img
+                  alt={ collectionName }
+                  src={ artworkUrl100 }
+                  style={ { width: '150px' } }
+                />
+                <span>{collectionName}</span>
               </Link>
-            </li>
-          ))}
-        </ol>
+
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

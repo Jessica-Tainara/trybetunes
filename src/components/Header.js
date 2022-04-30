@@ -23,13 +23,16 @@ class Header extends React.Component {
   render() {
     const { loading, name } = this.state;
     const header = (
-      <header data-testid="header-component">
-        <nav>
+      <header id="header" data-testid="header-component">
+        <div id="title">
+          <p>TrybeTunes</p>
+          <h2 data-testid="header-user-name">{ name }</h2>
+        </div>
+        <nav id="nav">
           <Link data-testid="link-to-search" to="/search">Buscar</Link>
           <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
           <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
         </nav>
-        <h2 data-testid="header-user-name">{ name }</h2>
       </header>
     );
     return (

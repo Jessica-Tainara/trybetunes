@@ -15,27 +15,28 @@ class Favorites extends React.Component {
   }
 
   async componentDidMount() {
-    const favs = await getFavoriteSongs();
-    this.setState({ favoritas: favs, loading: false });
+    this.setState({ favoritas: await getFavoriteSongs(), loading: false });
+  }
+
+  renderMusic = (music, i) => {
+    const prop = {
+      music,
+      check: true,
+      onClickCheckbox:
+          async () => {
+            this.setState({ loading: true });
+            await removeSong(music);
+            this.setState({ favoritas: await getFavoriteSongs(), loading: false });
+          },
+    };
+    return (<li key={ i }><MusicCard { ...prop } /></li>);
   }
 
   render() {
     const { favoritas, loading } = this.state;
     const section = (
       <ol>
-        {favoritas.map((music, i) => {
-          const prop = {
-            check: true,
-            onClickCheckbox:
-                async () => {
-                  this.setState({ loading: true });
-                  await removeSong(music);
-                  await this.componentDidMount();
-                },
-            music,
-          };
-          return (<li key={ i }><MusicCard { ...prop } /></li>);
-        })}
+        {favoritas.map((music, i) => this.renderMusic(music, i))}
       </ol>);
     return (
       <div data-testid="page-favorites">
