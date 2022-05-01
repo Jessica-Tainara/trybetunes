@@ -55,24 +55,39 @@ class Search extends React.Component {
         <div className="page">
           {loading ? <Loading /> : form}
           {hasAlbum ? <p>{found}</p> : <p>{nFound}</p>}
-          <div id="cards">
-            {albuns.map(({ collectionId, collectionName, artworkUrl100 }) => (
+          <div
+            id="cards"
+          >
+            { albuns.map(({ collectionId,
+              collectionName,
+              artworkUrl100,
+              artistName }) => {
+              const lengthMax = 35;
+              return (
+                <Link
+                  key={ collectionId }
+                  data-testid={ `link-to-album-${collectionId}` }
+                  to={ `album/${collectionId}` }
+                  className="card"
+                >
+                  <div>
+                    <img
+                      alt={ collectionName }
+                      src={ artworkUrl100 }
+                      style={ { width: '209.5px' } }
+                    />
+                  </div>
+                  <div className="text-card">
+                    <span>
+                      {collectionName.length < lengthMax ? collectionName
+                        : `${collectionName.substr(0, lengthMax)}...`}
+                    </span>
+                    <span className="artist-name">{artistName}</span>
+                  </div>
+                </Link>
 
-              <Link
-                key={ collectionId }
-                data-testid={ `link-to-album-${collectionId}` }
-                to={ `album/${collectionId}` }
-                className="card"
-              >
-                <img
-                  alt={ collectionName }
-                  src={ artworkUrl100 }
-                  style={ { width: '150px' } }
-                />
-                <span>{collectionName}</span>
-              </Link>
-
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
