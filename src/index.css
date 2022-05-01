@@ -6,6 +6,7 @@
 
 body {
   background-color: #1d1d1d;
+  color: #a7a7a7;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -38,9 +39,11 @@ code {
   justify-content: center;
 }
 #header {
-  background-color: #0f0f0f;
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 #nav {
   display: flex;
@@ -57,6 +60,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: flex-end;
   margin-top: 20px;
   width: 80%;
 }
@@ -82,6 +86,11 @@ code {
 
 }
 
+.pages {
+  display: flex;
+  justify-content: flex-end;
+  width: 1351px;
+}
 
 .card img {
  border-radius: 3px;
@@ -103,4 +112,110 @@ code {
     line-height: 1rem;
     font-weight: 400;
     color: #6a6a6a;
+}
+.card:hover 
+
+{ background-color: #272727; 
+
+transition: 0.5s;
+/* 
+opacity: 0.7; */
+
+}
+.search-bar {
+  background-color: #090909;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.album-description {
+  align-items: flex-end;
+  background-color:#98a0b8 ;
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 340px;
+  padding: 30px;
+  background-image: linear-gradient(to bottom, transparent 0,rgba(0,0,0,.5) 100%);
+  margin-top: -20px;
+
+}
+.album-description img {
+  height: 232px;
+  width: 232px;
+  box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+  margin-right: 30px;
+}
+.album-description h1 {
+  font-size: xxx-large;
+  font-weight: bolder;
+}
+.album {
+
+    background-color: rgb(18, 18, 18);
+    background-image: linear-gradient(to top, transparent 0,#3f424d 100%);
+    
+}
+.audio {
+  position: relative;
+  width: 500px;
+  height: 40px;
+  margin-right: 250px;
+  padding-right: 10px;
+  opacity: 1;
+}
+.music {
+  align-items: center;
+  background-color:#121212;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  display: flex;
+  color:rgb(253, 253, 253);
+  justify-content: space-between;
+  width: 40%;
+}
+.music p {
+  color: rgb(255, 255, 255);
+  width: 30%;
+  position: absolute;
+
+}
+.musics {
+  display: flex;
+  background-color: #121212;
+  flex-wrap: wrap;
+ justify-content: space-evenly;
+  width: 100%;
+}
+
+/* Specifies the size of the audio container */
+audio::-webkit-media-controls-panel {
+  height: 25px;
+  -webkit-justify-content: space-between;
+  padding-top: 5px;
+}
+
+/* Removes the timeline */
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+/* Removes the time stamp */
+audio::-webkit-media-controls-current-time-display {
+  opacity: 1;
+  color: antiquewhite;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  
+}
+/* Removes mute-button */
+audio::-webkit-media-controls-mute-button {
+  display:none;
+}
+/* Removes play-button */
+audio::-webkit-media-controls-play-button {
+  left:30px;
+  position: absolute;
 }

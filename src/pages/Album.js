@@ -42,23 +42,32 @@ renderMusic = (music, i) => {
           });
         },
   };
-  return (i > 0 && <li key={ i }><MusicCard { ...prop } /></li>);
+  return (i > 0 && <MusicCard { ...prop } />);
 }
 
 render() {
   const { loading, musics } = this.state;
   const { artistName, collectionName } = musics[0];
   const alb = (
-    <div>
-      <h1 data-testid="artist-name">{artistName}</h1>
-      <h2 data-testid="album-name">{collectionName}</h2>
-      <ol>
+    <div className="page album">
+      <div className="album-description">
+        <img
+          src={ musics[0].artworkUrl100 }
+          alt={ musics[0].collectionName }
+        />
+        <div>
+          <span>Albúm</span>
+          <h1 data-testid="album-name">{collectionName}</h1>
+          <h2 data-testid="artist-name">{artistName}</h2>
+        </div>
+      </div>
+      <div className="musics">
         {musics.map((music, i) => this.renderMusic(music, i))}
-      </ol>
+      </div>
     </div>
   );
   return (
-    <div data-testid="page-album">
+    <div data-testid="page-album" className="pages">
       <Header />
       {loading ? <Loading /> : alb}
     </div>);

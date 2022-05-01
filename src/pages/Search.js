@@ -19,7 +19,7 @@ class Search extends React.Component {
   render() {
     const { artista, loading, hasAlbum, found, albuns, nFound } = this.state;
     const form = (
-      <form>
+      <form className="search-bar">
         <input
           data-testid="search-artist-input"
           onChange={ ({ target }) => { this.setState({ artista: target.value }); } }
@@ -50,7 +50,7 @@ class Search extends React.Component {
     );
 
     return (
-      <div data-testid="page-search" id="page-search">
+      <div data-testid="page-search" className="pages">
         <Header />
         <div className="page">
           {loading ? <Loading /> : form}
