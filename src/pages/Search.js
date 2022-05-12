@@ -54,7 +54,7 @@ class Search extends React.Component {
         <Header />
         <div className="page">
           {loading ? <Loading /> : form}
-          {hasAlbum ? <p>{found}</p> : <p>{nFound}</p>}
+          {hasAlbum ? <p className="feedback-search">{found}</p> : <p>{nFound}</p>}
           <div
             id="cards"
           >

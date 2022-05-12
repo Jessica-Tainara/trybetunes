@@ -8,7 +8,6 @@ class MusicCard extends React.Component {
 
     return (
       <div className="music">
-        <p className="music-title">{trackName}</p>
         <audio
           data-testid="audio-component"
           className="audio"
@@ -19,16 +18,15 @@ class MusicCard extends React.Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
-        <label htmlFor={ trackId }>
-          Favorita
-          <input
-            type="checkbox"
-            id={ trackId }
-            data-testid={ `checkbox-music-${trackId}` }
-            checked={ check }
-            onChange={ onClickCheckbox }
-          />
-        </label>
+        <p className="music-title">{trackName}</p>
+        <input
+          className="favorite-button"
+          type="checkbox"
+          id={ trackId }
+          data-testid={ `checkbox-music-${trackId}` }
+          checked={ check }
+          onChange={ onClickCheckbox }
+        />
       </div>
     );
   }
