@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
-    const { music, onClickCheckbox, check } = this.props;
+    const { music, onClickCheckbox, check, index } = this.props;
     const { trackName, previewUrl, trackId } = music;
 
     return (
@@ -18,6 +18,7 @@ class MusicCard extends React.Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
+        <p className="number">{`${index}.`}</p>
         <p className="music-title">{trackName}</p>
         <input
           className="favorite-button"
@@ -35,5 +36,6 @@ MusicCard.propTypes = {
   music: PropTypes.string.isRequired,
   onClickCheckbox: PropTypes.func.isRequired,
   check: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
 };
 export default MusicCard;

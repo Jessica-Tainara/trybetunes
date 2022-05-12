@@ -27,6 +27,7 @@ renderMusic = (music, i) => {
   const { favoritas } = this.state;
   const prop = {
     music,
+    index: i,
     check: favoritas
       .some((fav) => fav.trackName === music.trackName),
     onClickCheckbox:
