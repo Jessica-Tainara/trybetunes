@@ -21,6 +21,7 @@ class Favorites extends React.Component {
   renderMusic = (music, i) => {
     const prop = {
       music,
+      index: 1 + i,
       check: true,
       onClickCheckbox:
           async () => {
@@ -29,15 +30,17 @@ class Favorites extends React.Component {
             this.setState({ favoritas: await getFavoriteSongs(), loading: false });
           },
     };
-    return (<li key={ i }><MusicCard { ...prop } /></li>);
+    return (<MusicCard { ...prop } />);
   }
 
   render() {
     const { favoritas, loading } = this.state;
     const section = (
-      <ol>
-        {favoritas.map((music, i) => this.renderMusic(music, i))}
-      </ol>);
+      <div className="page favorites">
+        <div className="musics fav">
+          {favoritas.map((music, i) => this.renderMusic(music, i))}
+        </div>
+      </div>);
     return (
       <div data-testid="page-favorites">
         <Header />

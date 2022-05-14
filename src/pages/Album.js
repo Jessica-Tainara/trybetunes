@@ -50,7 +50,12 @@ render() {
   const { loading, musics } = this.state;
   const { artistName, collectionName } = musics[0];
   const alb = (
-    <div className="page album">
+    <div
+      className="page album"
+      style={ { backgroundImage: `url(${musics[0].artworkUrl100})`,
+        backgroundSize: '1000000px',
+        backgroundPosition: 'top rigth' } }
+    >
       <div className="album-description">
         <img
           src={ musics[0].artworkUrl100 }
