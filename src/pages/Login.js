@@ -1,7 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
-import Loading from '../components/Loading';
 import Search from './Search';
 
 class Login extends React.Component {
@@ -17,18 +16,14 @@ class Login extends React.Component {
 
   SaveUser= async () => {
     const { name } = this.state;
-    this.setState({
-      loading: 'true',
-    });
     await createUser({ name });
     this.setState({
       userCreated: 'true',
-      loading: 'false',
     });
   }
 
   render() {
-    const { loading, userCreated, name } = this.state;
+    const { userCreated, name } = this.state;
     const form = (
       <div className="page-login">
         <form>
@@ -38,14 +33,16 @@ class Login extends React.Component {
             type="text"
             data-testid="login-name-input"
           />
-          <button
-            type="submit"
-            onClick={ this.SaveUser }
-            disabled={ name.length <= 2 }
-            data-testid="login-submit-button"
-          >
-            Entrar
-          </button>
+          <Link to="/search">
+            <button
+              type="submit"
+              onClick={ this.SaveUser }
+              disabled={ name.length <= 2 }
+              data-testid="login-submit-button"
+            >
+              Entrar
+            </button>
+          </Link>
         </form>
       </div>
     );
@@ -53,8 +50,8 @@ class Login extends React.Component {
       <div
         data-testid="page-login"
       >
-        <Search name={ name } />
-        {loading ? <Loading /> : form}
+        <Search loadingLogin={ false } />
+        {form}
         {userCreated && <Redirect to="/search" />}
       </div>
     );

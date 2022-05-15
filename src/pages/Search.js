@@ -65,6 +65,7 @@ class Search extends React.Component {
       <div data-testid="page-search" className="pages">
         <Header />
         <div className="page">
+          {form}
           {loading ? <Loading /> : form}
           {hasAlbum ? <p className="feedback-search">{found}</p> : <p>{nFound}</p>}
           <div

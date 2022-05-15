@@ -25,10 +25,10 @@ class Header extends React.Component {
   }
 
   render() {
-    const { loading, name } = this.state;
+    const { name, loading } = this.state;
     const header = (
       <header id="header" data-testid="header-component">
-        <div id="title" className="inline">
+        <div id="logo" className="inline">
           <img
             className="icon"
             alt="icon"
