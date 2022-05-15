@@ -8,7 +8,11 @@
   font-family: 'quick';    
   font-weight: bold;
 } 
-
+@font-face {
+  src: url(./Nunito-ExtraBold.ttf);
+  font-family: 'nunito';    
+  font-weight: bold;
+} 
 body {
   background-color: #1d1d1d;
   color: #a7a7a7;
@@ -32,6 +36,7 @@ code {
 }
 .album {
   background-position: top right;
+  margin-top: -130px;
 }
 .loading {
   align-items: center;
@@ -54,10 +59,11 @@ code {
   left: 0px;
   position: fixed;
   z-index: 150;
+  padding: 20px;
   /* flex-direction: column; */
 }
 #nav {
-  align-self:center;
+  align-self:flex-start;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -65,6 +71,7 @@ code {
   height: 100px;
   margin-right: 0px;
   margin-left: -180px;
+  margin-top: 100px;
 }
 #title {
   display: flex;
@@ -81,14 +88,17 @@ code {
   align-self: flex-end;
   width: 80%;
   height: 100%;
+  position: relative;
+  padding-top: 130px;
 }
 #cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  margin-top: 150px;
+  margin-top: 20px;
 }
+
 .card {
   background-color:#181818;
   border-radius: clamp(4px,(var(--column-width,0px) - 32px) * 0.025,8px);
@@ -165,7 +175,7 @@ opacity: 0.7; */
 
 
 
-.search-bar {
+.search {
   background-color: #090909;
   display: flex;
   justify-content: center;
@@ -174,13 +184,11 @@ opacity: 0.7; */
   position: fixed;
   padding-top: 25px;
   margin-bottom: 50px;
+  margin-top: -130px;
   z-index: 100;
 
 }
-.feedback-search {
-  margin-top: 100px;
-  position: absolute;
-}
+
 .album-description {
   align-items: flex-end;
   background-color:transparent;
@@ -337,6 +345,9 @@ audio::-webkit-media-controls-play-button {
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
+  font-family: 'nunito';
+  font-size: small;
+  font-weight: 900;
 }
 .title {
   font-family: 'quick';
@@ -345,3 +356,37 @@ audio::-webkit-media-controls-play-button {
   color: white;
   margin-bottom: 15px;
 }
+.page-login {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index:350;
+  margin-top: -160px;
+  /* margin-left:450px ; */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* padding-top: 250px; */
+}
+.page-login form {
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  width: 25%;
+}
+.search input {
+width: 300px;
+height: 40px;
+border-radius: 20px;
+padding-left: 50px;
+font-size: small;
+position: relative;
+}
+.search button {
+  display: none;
+  }

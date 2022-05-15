@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import Search from './Search';
 
 class Login extends React.Component {
   constructor() {
@@ -29,8 +30,7 @@ class Login extends React.Component {
   render() {
     const { loading, userCreated, name } = this.state;
     const form = (
-      <div>
-        <h1>Login</h1>
+      <div className="page-login">
         <form>
           <input
             name="name"
@@ -50,7 +50,10 @@ class Login extends React.Component {
       </div>
     );
     return (
-      <div data-testid="page-login">
+      <div
+        data-testid="page-login"
+      >
+        <Search name={ name } />
         {loading ? <Loading /> : form}
         {userCreated && <Redirect to="/search" />}
       </div>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import disco from '../disco.png';
+import procurar from '../procurar.svg';
 
 class Search extends React.Component {
   constructor() {
@@ -19,11 +21,21 @@ class Search extends React.Component {
   render() {
     const { artista, loading, hasAlbum, found, albuns, nFound } = this.state;
     const form = (
-      <form className="search-bar">
+      <form className="search">
         <input
           data-testid="search-artist-input"
           onChange={ ({ target }) => { this.setState({ artista: target.value }); } }
           value={ artista }
+          placeholder="Artistas"
+        />
+        <img
+          alt="icon"
+          src={ procurar }
+          style={ {
+            position: 'absolute',
+            width: '25px',
+            marginRight: '250px',
+            marginTop: '8px' } }
         />
         <button
           type="submit"
@@ -58,36 +70,50 @@ class Search extends React.Component {
           <div
             id="cards"
           >
-            { albuns.map(({ collectionId,
-              collectionName,
-              artworkUrl100,
-              artistName }) => {
-              const lengthMax = 35;
-              return (
-                <Link
-                  key={ collectionId }
-                  data-testid={ `link-to-album-${collectionId}` }
-                  to={ `album/${collectionId}` }
-                  className="card"
-                >
-                  <div>
-                    <img
-                      alt={ collectionName }
-                      src={ artworkUrl100 }
-                      style={ { width: '209.5px' } }
-                    />
-                  </div>
-                  <div className="text-card">
-                    <span>
-                      {collectionName.length < lengthMax ? collectionName
-                        : `${collectionName.substr(0, lengthMax)}...`}
-                    </span>
-                    <span className="artist-name">{artistName}</span>
-                  </div>
-                </Link>
+            { !hasAlbum ? (
+              <div>
+                <img
+                  className="icon"
+                  alt="icon"
+                  src={ disco }
+                  style={ {
+                    width: '300px',
+                    marginTop: '30px',
+                    position: 'fixed',
+                    marginLeft: '-150px' } }
+                />
+              </div>
+            )
+              : albuns.map(({ collectionId,
+                collectionName,
+                artworkUrl100,
+                artistName }) => {
+                const lengthMax = 35;
+                return (
+                  <Link
+                    key={ collectionId }
+                    data-testid={ `link-to-album-${collectionId}` }
+                    to={ `album/${collectionId}` }
+                    className="card"
+                  >
+                    <div>
+                      <img
+                        alt={ collectionName }
+                        src={ artworkUrl100 }
+                        style={ { width: '209.5px' } }
+                      />
+                    </div>
+                    <div className="text-card">
+                      <span>
+                        {collectionName.length < lengthMax ? collectionName
+                          : `${collectionName.substr(0, lengthMax)}...`}
+                      </span>
+                      <span className="artist-name">{artistName}</span>
+                    </div>
+                  </Link>
 
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </div>

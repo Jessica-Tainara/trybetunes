@@ -4,8 +4,8 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import disco from '../disco.png';
 import procurar from '../procurar.svg';
-import pasta from '../pasta.png';
 import perfil from '../do-utilizador.svg';
+import blackHeartIcon from '../blackHeartIcon.svg';
 
 class Header extends React.Component {
   constructor() {
@@ -36,7 +36,7 @@ class Header extends React.Component {
             style={ { width: '50px' } }
           />
           <p className="title">TrybeTunes</p>
-          <h2 data-testid="header-user-name">{ loading ? <Loading /> : name }</h2>
+
         </div>
         <nav id="nav">
           <Link data-testid="link-to-search" to="/search">
@@ -50,18 +50,29 @@ class Header extends React.Component {
               <p>Buscar</p>
             </div>
           </Link>
-          <Link data-testid="link-to-favorites" to="/favorites">
-            <div className="inline">
+          <div className="inline">
+            <div
+              style={ {
+                borderRadius: '3px',
+                background:
+                  'linear-gradient(135deg,#450af5,#c4efd9)',
+                width: '25px',
+                height: '25px',
+                padding: 'auto',
+                marginRight: '15px' } }
+            >
               <img
                 className="icon"
                 alt="icon"
-                src={ pasta }
-                style={ { width: '30px', marginRight: '5px' } }
+                src={ blackHeartIcon }
+                style={ { width: '15px', margin: 'auto', marginTop: '5px' } }
               />
-              <p>Favoritas</p>
             </div>
+            <Link data-testid="link-to-favorites" to="/favorites">
+              <p>Favoritas</p>
+            </Link>
+          </div>
 
-          </Link>
           <Link data-testid="link-to-profile" to="/profile">
             <div className="inline">
               <img
@@ -73,6 +84,16 @@ class Header extends React.Component {
               <p>Perfil</p>
             </div>
           </Link>
+          <h2
+            data-testid="header-user-name"
+            style={ {
+              position: 'fixed',
+              marginLeft: '30px',
+              marginTop: '800px',
+            } }
+          >
+            {loading ? <Loading /> : name }
+          </h2>
         </nav>
       </header>
     );
