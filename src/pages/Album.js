@@ -32,14 +32,14 @@ renderMusic = (music, i) => {
       .some((fav) => fav.trackName === music.trackName),
     onClickCheckbox:
         async () => {
-          this.setState({ loading: true });
+          // this.setState({ loading: true });
           const fun = favoritas
             .some((fav) => fav.trackName === music.trackName)
             ? removeSong : addSong;
           await fun(music);
           this.setState({
             favoritas: await getFavoriteSongs(),
-            loading: false,
+            // loading: false,
           });
         },
   };
@@ -48,22 +48,26 @@ renderMusic = (music, i) => {
 
 render() {
   const { loading, musics } = this.state;
-  const { artistName, collectionName } = musics[0];
+  const { artistName, collectionName, artworkUrl100 } = musics[0];
+
+  const urlImage = String(artworkUrl100).split('/');
+  urlImage.splice(urlImage.length - 1, 1, '300x300bb.jpg');
+
   const alb = (
     <div
       className="page album"
-      style={ { backgroundImage: `url(${musics[0].artworkUrl100})`,
+      style={ { backgroundImage: `url(${artworkUrl100})`,
         backgroundSize: '1000000px',
         backgroundPosition: 'top rigth' } }
     >
       <div className="album-description">
         <img
-          src={ musics[0].artworkUrl100 }
+          src={ urlImage.join('/') }
           alt={ musics[0].collectionName }
         />
         <div>
           <span>Albúm</span>
-          <h1 data-testid="album-name">{collectionName}</h1>
+          <h1 id="album-name">{collectionName}</h1>
           <h2 data-testid="artist-name">{artistName}</h2>
         </div>
       </div>
