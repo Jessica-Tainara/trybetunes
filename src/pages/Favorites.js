@@ -25,7 +25,7 @@ class Favorites extends React.Component {
       check: true,
       onClickCheckbox:
           async () => {
-            this.setState({ loading: true });
+            // this.setState({ loading: true });
             await removeSong(music);
             this.setState({ favoritas: await getFavoriteSongs(), loading: false });
           },
