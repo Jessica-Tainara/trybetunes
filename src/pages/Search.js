@@ -90,6 +90,9 @@ class Search extends React.Component {
                 artworkUrl100,
                 artistName }) => {
                 const lengthMax = 35;
+                const urlImage = String(artworkUrl100).split('/');
+                urlImage.splice(urlImage.length - 1, 1, '200x200bb.webp');
+
                 return (
                   <Link
                     key={ collectionId }
@@ -100,7 +103,7 @@ class Search extends React.Component {
                     <div>
                       <img
                         alt={ collectionName }
-                        src={ artworkUrl100 }
+                        src={ urlImage.join('/') }
                         style={ { width: '209.5px' } }
                       />
                     </div>
