@@ -475,3 +475,76 @@ code {
   width: 1050px;
   z-index: 5;
 }
+.labels-perfil {
+  font-size: 17px;
+  position: relative;
+  margin-left: 420px;
+  margin-top: 40px;
+}
+
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  top: -40px;
+  height: 400px;
+}
+.infos-user {
+  font-size: 16px;
+  position: relative;
+  margin-left: 420px;
+  top: -160px;
+  color: wheat;
+  margin-top: 40px;
+}
+
+.description {
+  text-align: justify;
+  max-width: 300px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
+.float-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+}
+.full {
+  width: 98%;
+}
+.float-label input {
+  width: 100%;
+  height: 56px;
+  padding: 14px 16px 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.float-label label {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1d1d1d;
+  padding: 0 12px;
+  color: rgb(255, 255, 255, 72%);
+  margin-top: -10px;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  padding-inline: 5px;
+}
+.loat-label:focus-within label {
+  color: #6739b2;
+}
+.float-label input:focus{
+  border: 2px solid #6739b2;
+}

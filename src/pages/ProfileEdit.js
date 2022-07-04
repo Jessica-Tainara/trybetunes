@@ -30,7 +30,7 @@ class ProfileEdit extends React.Component {
     const edit = (
       <div className="page">
         <form className="edit">
-          <div id="float-label">
+          <div className="float-label">
             <input
               id="nome"
               className="login-name-input"
@@ -41,7 +41,7 @@ class ProfileEdit extends React.Component {
             />
             <label htmlFor="nome">Nome</label>
           </div>
-          <div id="float-label">
+          <div className="float-label">
             <input
               id="email"
               className="login-name-input"
@@ -52,7 +52,7 @@ class ProfileEdit extends React.Component {
             />
             <label htmlFor="email">E-mail</label>
           </div>
-          <div id="float-label">
+          <div className="float-label">
             <input
               className="login-name-input"
               id="descricao"
@@ -65,7 +65,7 @@ class ProfileEdit extends React.Component {
             />
             <label htmlFor="descricao">Descrição</label>
           </div>
-          <div id="float-label">
+          <div className="float-label">
             <input
               className="login-name-input"
               id="imagem"
