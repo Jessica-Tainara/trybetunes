@@ -12,6 +12,7 @@ class Search extends React.Component {
 
     this.state = {
       artista: '',
+      hasAlbum: true,
       nFound: '',
       albuns: [],
 
@@ -20,6 +21,7 @@ class Search extends React.Component {
 
   render() {
     const { artista, loading, hasAlbum, found, albuns, nFound } = this.state;
+    console.log(albuns);
     const form = (
       <form className="search">
         <input
@@ -34,7 +36,7 @@ class Search extends React.Component {
           style={ {
             position: 'absolute',
             width: '25px',
-            marginRight: '250px',
+            marginLeft: '8px',
             marginTop: '8px' } }
         />
         <button
@@ -65,7 +67,6 @@ class Search extends React.Component {
       <div data-testid="page-search" className="pages">
         <Header />
         <div className="page">
-          {form}
           {loading ? <Loading /> : form}
           {hasAlbum ? <p className="feedback-search">{found}</p> : <p>{nFound}</p>}
           <div
@@ -91,7 +92,7 @@ class Search extends React.Component {
                 artistName }) => {
                 const lengthMax = 35;
                 const urlImage = String(artworkUrl100).split('/');
-                urlImage.splice(urlImage.length - 1, 1, '200x200bb.webp');
+                urlImage.splice(urlImage.length - 1, 1, '400x400bb.webp');
 
                 return (
                   <Link
