@@ -395,6 +395,7 @@ code {
   opacity: 1;
   
 }
+
 .number {
   color: #9b9b9b;
   display: flex;
@@ -405,4 +406,72 @@ code {
 }
 .music:hover .number{
   display: none;
+}
+
+.favorites {
+  width: 1095px;
+  margin-left: 271px;
+  background-color: #8a8a8a;
+
+  
+}
+.fav {
+  min-height: 614px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: linear-gradient(to bottom, black 55px, #352a6a 100%);
+  background-attachment: fixed;
+  padding-top: 120px;
+    margin-top: -150px;
+}
+
+.full {
+  width: 98%;
+}
+
+.full audio::-webkit-media-controls-panel {
+  margin-right: 10px;
+  position: absolute;
+  opacity: 1;
+}
+
+/* Removes the timeline */
+.full audio::-webkit-media-controls-timeline {
+  display: none !important;
+
+}
+
+/* Removes the time stamp */
+.full audio::-webkit-media-controls-current-time-display {
+  opacity: 1;
+}
+/* Removes play-button */
+#number, .full audio::-webkit-media-controls-play-button {
+  margin-right: 802px;
+  position: relative;
+  opacity: 1;
+  
+}
+#title-music {
+  position: absolute;
+  margin-left: 150px;
+}
+.full p{
+  margin-left: 150px;
+}
+.full button{
+  margin-left:1000px;
+}
+
+.top {
+  /* background-color: #000000;
+  background-image: linear-gradient(to bottom, transparent 0,rgba(0,0,0,.5) 100%); */
+  padding-left: 25px;
+  position: fixed;
+  display: flex;
+  padding-top: 40px;
+  top: 0px;
+  height: 30px;
+  width: 1050px;
+  z-index: 5;
 }
