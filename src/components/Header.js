@@ -29,7 +29,7 @@ class Header extends React.Component {
     const { name, loading, image } = this.state;
     const header = (
       <header id="header" data-testid="header-component">
-        <div id="logo" className="inline">
+        <div id="logo" className="links">
           <img
             className="icon"
             alt="icon"
@@ -40,7 +40,7 @@ class Header extends React.Component {
         </div>
         <nav id="nav">
           <Link data-testid="link-to-search" to="/search">
-            <div className="inline">
+            <div className="links">
               <img
                 className="icon"
                 alt="icon"
@@ -50,7 +50,7 @@ class Header extends React.Component {
               <p>Buscar</p>
             </div>
           </Link>
-          <div className="inline">
+          <div className="links">
             <div
               style={ {
                 borderRadius: '3px',
@@ -74,7 +74,7 @@ class Header extends React.Component {
           </div>
 
           <Link data-testid="link-to-profile" to="/profile">
-            <div className="inline">
+            <div className="links">
               <img
                 className="icon"
                 alt="icon"

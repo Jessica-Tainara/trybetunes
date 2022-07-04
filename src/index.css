@@ -150,12 +150,7 @@ code {
   width: 80%;
 }
 
-.inline {
-  display: flex;
-  flex-direction: row;
-  font-size: 17px;
-  margin-bottom: 10px;
-}
+
 
 #logo {
   display: flex;
@@ -266,6 +261,12 @@ code {
   display: flex;
   justify-content: flex-end;
   width: 1351px;
+}
+
+.links {
+  display: flex;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .album-description {
