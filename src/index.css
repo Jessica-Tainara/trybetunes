@@ -56,3 +56,54 @@ code {
 .icon {
   filter: invert(87%) sepia(51%) saturate(8%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
+
+#float-label-login {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+}
+
+#float-label-login input {
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  height: 56px;
+  outline: none;
+  padding: 14px 16px 0 10px;
+  width: 100%;
+}
+
+#float-label-login label {
+  background-color: #352A6B;
+  color: rgb(255, 255, 255, 72%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  left: 15px;
+  margin-top: -10px;
+  padding: 0 12px;
+  padding-inline: 5px;
+  pointer-events: none;
+  position: absolute;
+}
+
+#float-label-login:focus-within label {
+  color: #e14422;
+}
+
+#float-label-login input:focus{
+  border: 2px solid #e14422;
+}
+
+.login-submit-button {
+  background-color: #e14422;
+  border-radius: 10px;
+  height: 55px;
+  width: 350px;
+}
+
+.login-submit-button:disabled {
+  background-color: #6739b2;
+}

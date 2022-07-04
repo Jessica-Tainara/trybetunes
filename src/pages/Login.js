@@ -29,11 +29,10 @@ class Login extends React.Component {
     const form = (
       <div className="page-login">
         <img
-          // className="icon"
           alt="icon"
           src={ template }
           style={ {
-            width: '500px', marginLeft: '500px', position: 'fixed' } }
+            width: '400px', marginLeft: '500px', position: 'fixed' } }
         />
         <img 
            className="icon"
