@@ -12,6 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  src: url(./BebasNeue-Regular.ttf);
+  font-family: 'BebasNeue-Regular';    
+  font-weight: normal;
+}
+
 html{
   height: 100%;
 }
@@ -30,6 +36,12 @@ code {
   display: flex;
   min-height: 100%;
   width: 100%;
+}
+
+.pages {
+  display: flex;
+  justify-content: flex-end;
+  width: 1351px;
 }
 
 .page-login {
@@ -187,3 +199,73 @@ code {
 .search button {
   display: none;
 }
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color:#181818;
+  border-radius: clamp(4px,(var(--column-width,0px) - 32px) * 0.025,8px);
+  color: white;
+  font-family: 'BebasNeue-Regular'; 
+  font-size: 1rem;
+  font-weight: 500;
+  height: 319.5px;
+  line-height: 1.5rem;
+  margin:6px;
+  padding: 16px;
+  padding-block-end: 4px;
+  position: relative;
+  width: 241.5px;
+}
+
+.card img {
+  border-radius: 3px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  margin-bottom: 16px;
+  max-height: 209.5px;
+  position: relative;
+  width: 209.5px; 
+}
+
+.text-card{
+ display: flex;
+ flex-direction: column;
+}
+ 
+.artist-name {
+  color: #6a6a6a;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1rem;
+  margin-top: 4px;
+}
+
+.card:hover {
+  background-color: #272727;
+} 
+
+.card:hover::after {
+  visibility: visible
+}
+
+.card::after {
+  background: url('./bbb.png');
+  background-position: 45% 55%;
+  background-size: 40px;
+  content: '';
+  display: block;
+  height: 40px;
+  left: 175px;
+  position: absolute;
+  top: 175px;
+  visibility: hidden;
+  width: 40px;
+}
+
