@@ -1,0 +1,555 @@
+body {
+  background-color: #1d1d1d;
+  color: #a7a7a7;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* @font-face {
+  src: url(./BebasNeue-Regular.ttf);
+  font-family: 'BebasNeue-Regular';    
+  font-weight: normal;
+} */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+#root{
+  display: flex;
+  width: 100%;
+}
+.album {
+  background-position: top right;
+  margin-top: -130px;
+}
+.loading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#loading{
+  color: rgb(133, 129, 129);
+  display: flex;
+  font-style: italic;
+  font-weight: 100;
+  justify-content: center;
+  width: 100%;
+}
+#header {
+  background-color: #000000;
+  max-width: 271px;
+  min-width: 271px;
+  height: 100%;
+  display: flex;
+  left: 0px;
+  position: fixed;
+  z-index: 3;
+  padding: 20px;
+  /* padding-top: 100px; */
+  justify-content: flex-end;
+}
+#nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 150px;
+  margin-right: 0px;
+  margin-left: -130px;
+  margin-top: 230px;
+}
+
+#logo {
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.page {
+  background-color: #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  width: 80%;
+  height: 100%;
+  position: relative;
+  padding-top: 130px;
+}
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.card {
+  background-color:#181818;
+  border-radius: clamp(4px,(var(--column-width,0px) - 32px) * 0.025,8px);
+  color: white;
+  font-family: 'BebasNeue-Regular'; 
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  padding-block-end: 4px;
+  width: 241.5px;
+  height: 319.5px;
+  margin:6px;
+  padding: 16px;
+  position: relative;
+}
+
+.pages {
+  display: flex;
+  justify-content: flex-end;
+  width: 1351px;
+}
+
+.card img {
+ border-radius: 3px;
+ box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  width: 209.5px;
+  margin-bottom: 16px;
+  max-height: 209.5px;
+  position: relative;
+
+}
+
+.text-card{
+  display: flex;
+  flex-direction: column;
+}
+.artist-name {
+  color:#a7a7a7;
+    margin-top: 4px;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: #6a6a6a;
+}
+.card:hover 
+
+{ background-color: #272727;
+
+
+
+transition: 0.5s;
+/* 
+opacity: 0.7; */
+
+}
+.card:hover::after {
+  visibility: visible
+}
+.card::after {
+  background: url('./bbb.png');
+  background-position: 45% 55%;
+  background-size: 40px;
+  content: '';
+  display: block;
+  left: 175px;
+  position: absolute;
+  top: 175px;
+  visibility: hidden;
+  width: 40px;
+  height: 40px;
+
+}
+
+
+
+.search {
+  background-color: #090909;
+  display: flex;
+  justify-content: flex-start;
+  width: 120%;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  position: fixed;
+  padding-top: 25px;
+  margin-bottom: 50px;
+  margin-top: -130px;
+  left: 270px;
+  z-index: 100;
+
+}
+
+.album-description {
+  align-items: flex-end;
+  /* font-family: 'BebasNeue-Regular'; */
+  background-color:transparent;
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 340px;
+  padding: 30px;
+  background-image: linear-gradient(to bottom, transparent 0,rgba(0,0,0,.5) 100%);
+  margin-top: -20px;
+
+}
+.album-description img {
+  height: 232px;
+  width: 232px;
+  box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+  margin-right: 30px;
+}
+#album-name {
+  
+  font-size: xxx-large;
+  font-weight:lighter;
+}
+.album {
+
+    background-color: rgb(18, 18, 18);
+    background-image: linear-gradient(to top, transparent 0,#3f424d 100%);
+    
+}
+.audio {
+  background-color: #F1F3F5;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  position: relative;
+  width: 98%;
+  height: 60px;
+  opacity: 0;
+  margin: auto;
+  padding-top: 10px;
+
+}
+.favorite-button{
+  filter: invert(87%) sepia(51%) saturate(8%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  margin-left: 490px;
+  margin-right: 200px;
+  position: absolute;
+  opacity: 0;
+  margin-bottom: 1px;
+  width: 20px;
+}
+.icon {
+  filter: invert(87%) sepia(51%) saturate(8%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+.music:hover  .audio{
+  opacity: 0.3;
+}
+.music:hover  .favorite-button{
+  opacity: 1;
+}
+.music {
+  align-items: center;
+  background-color:transparent;
+  display: flex;
+  color:rgb(253, 253, 253);
+  justify-content: space-between;
+  height: 60px;
+  width: 50%;
+  margin-top: 2px;
+}
+
+.music-title {
+  color: #e2e2e2;
+  font-family: sans-serif;
+  background-color: transparent;
+  position: absolute;
+  margin-left: 70px;
+  opacity: 1;
+}
+
+.music:hover{
+  color: #ffffff;
+}
+
+.musics {
+  align-items: flex-start;
+  display: flex;
+  background-image: linear-gradient(to bottom,transparent 0, #1d1d20cb 200px,#111010 );
+  background-color: rgba(22, 22, 22, 0.5);
+  flex-wrap: wrap;
+ justify-content: space-between;
+  width: 100%;
+  padding-left: 5px;
+  padding-top: 10px;
+  min-height: 293px;
+}
+
+/* Specifies the size of the audio container */
+.music audio::-webkit-media-controls-panel {
+  background-color: transparent;
+  opacity: 1;
+  height: 25px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 5px;
+  padding-right: 45px;
+}
+
+/* Removes the timeline */
+.music audio::-webkit-media-controls-timeline {
+  display: none !important;
+
+}
+
+/* Removes the time stamp */
+.music audio::-webkit-media-controls-current-time-display {
+  opacity: 1;
+}
+/* Removes play-button */
+.music audio::-webkit-media-controls-play-button {
+  margin-right: 423px;
+  position: absolute;
+  opacity: 1;
+  
+}
+.number {
+  color: #9b9b9b;
+  display: flex;
+  justify-content: center;
+  margin-left: 43px;
+  width: 10px;
+  position: absolute;
+}
+.music:hover .number{
+  display: none;
+}
+.favorites {
+  width: 1095px;
+  margin-left: 271px;
+  background-color: #8a8a8a;
+
+  
+}
+.fav {
+  min-height: 614px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: linear-gradient(to bottom, black 55px, #352a6a 100%);
+  background-attachment: fixed;
+  padding-top: 120px;
+    margin-top: -150px;
+}
+.inline {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+.title {
+  font-family: 'BebasNeue-Regular';
+  font-size: 25px;
+  font-weight: 1000;
+  color: white;
+  margin-top: 8px;
+}
+
+.page-login {
+  background-image: url('login.png');  right: -50px;
+  width: 1365px;
+  display: flex;
+  flex-direction: column;
+  height: 583px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.page-login form {
+  align-items: center;
+  display: flex;
+  height: 140px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 70px;
+
+}
+.search input {
+width: 300px;
+height: 40px;
+border-radius: 20px;
+padding-left: 50px;
+font-size: small;
+outline: none;
+position: relative;
+}
+.search button {
+  display: none;
+  }
+
+#float-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+}
+.full {
+  width: 98%;
+}
+#float-label input {
+  width: 100%;
+  height: 56px;
+  padding: 14px 16px 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+#float-label label {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1d1d1d;
+  padding: 0 12px;
+  color: rgb(255, 255, 255, 72%);
+  margin-top: -10px;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  padding-inline: 5px;
+}
+#float-label:focus-within label {
+  color: #6739b2;
+}
+#float-label input:focus{
+  border: 2px solid #6739b2;
+}
+
+.login-submit-button {
+  background-color: #6739b2;
+  border-radius: 10px;
+  width: 350px;
+  height: 55px;
+}
+
+.login-submit-button:disabled {
+  background-color: #543b7e9e;
+}
+
+.full audio::-webkit-media-controls-panel {
+  margin-right: 10px;
+  position: absolute;
+  opacity: 1;
+}
+
+/* Removes the timeline */
+.full audio::-webkit-media-controls-timeline {
+  display: none !important;
+
+}
+
+/* Removes the time stamp */
+.full audio::-webkit-media-controls-current-time-display {
+  opacity: 1;
+}
+/* Removes play-button */
+#number, .full audio::-webkit-media-controls-play-button {
+  margin-right: 802px;
+  position: relative;
+  opacity: 1;
+  
+}
+#title-music {
+  position: absolute;
+  margin-left: 150px;
+}
+.full p{
+  margin-left: 150px;
+}
+.full button{
+  margin-left:1000px;
+}
+
+.top {
+  /* background-color: #000000;
+  background-image: linear-gradient(to bottom, transparent 0,rgba(0,0,0,.5) 100%); */
+  padding-left: 25px;
+  position: fixed;
+  display: flex;
+  padding-top: 40px;
+  top: 0px;
+  height: 30px;
+  width: 1050px;
+  z-index: 5;
+}
+
+.labels-perfil {
+  font-size: 17px;
+  position: relative;
+  margin-left: 420px;
+  margin-top: 40px;
+}
+
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  top: -40px;
+  height: 400px;
+}
+.infos-user {
+  font-size: 16px;
+  position: relative;
+  margin-left: 420px;
+  top: -160px;
+  color: wheat;
+  margin-top: 40px;
+}
+
+.description {
+  text-align: justify;
+  max-width: 300px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
+
+#float-label-login {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+}
+.full {
+  width: 98%;
+}
+#float-label-login input {
+  width: 100%;
+  height: 56px;
+  padding: 14px 16px 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.281);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+#float-label-login label {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #352A6B;
+  padding: 0 12px;
+  color: rgb(255, 255, 255, 72%);
+  margin-top: -10px;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  padding-inline: 5px;
+}
+#float-label-login:focus-within label {
+  color: #6739b2;
+}
+#float-label-login input:focus{
+  border: 2px solid #6739b2;
+}
