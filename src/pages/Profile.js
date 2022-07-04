@@ -27,16 +27,40 @@ class Profile extends React.Component {
   render() {
     const { loading, usuario } = this.state;
     const prof = (
-      <div>
-        <p>{ usuario.name }</p>
-        <p>{ usuario.description }</p>
-        <p>{ usuario.email }</p>
-        <img data-testid="profile-image" alt="user" src={ usuario.image } />
-        <Link to="/profile/edit">Editar perfil</Link>
+      <div className="page profile">
+        <span className="labels-perfil">Nome</span>
+        <span className="labels-perfil">E-mail</span>
+        <span className="labels-perfil">Descrição</span>
+        <p className="infos-user">{ usuario.name }</p>
+        <p className="infos-user">{ usuario.email }</p>
+        <p className="infos-user description">{ usuario.description }</p>
+        <img
+          data-testid="profile-image"
+          alt="user"
+          style={ { borderRadius: '100px',
+            width: '200px',
+            height: '200px',
+            position: 'absolute',
+            left: '200px',
+            top: '170px' } }
+          src={ usuario.image || 'https://centerforleg.dk/wp-content/uploads/2021/06/no-profile-picture-icon-13.jpg' }
+        />
+        <Link
+          style={ { borderRadius: '100px',
+            width: '200px',
+            height: '200px',
+            position: 'absolute',
+            left: '250px',
+            top: '400px' } }
+          to="/profile/edit"
+        >
+          Editar perfil
+
+        </Link>
       </div>
     );
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile" className="pages">
         <Header />
         {loading ? <Loading /> : prof}
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
@@ -27,32 +28,54 @@ class ProfileEdit extends React.Component {
   render() {
     const { loading, name, image, email, description, userCreated } = this.state;
     const edit = (
-      <div>
-        <form>
-          <input
-            type="text"
-            value={ name }
-            data-testid="edit-input-name"
-            onChange={ ({ target }) => { this.setState({ name: target.value }); } }
-          />
-          <input
-            type="email"
-            value={ email }
-            data-testid="edit-input-email"
-            onChange={ ({ target }) => { this.setState({ email: target.value }); } }
-          />
-          <input
-            type="text"
-            value={ description }
-            data-testid="edit-input-description"
-            onChange={ ({ target }) => { this.setState({ description: target.value }); } }
-          />
-          <input
-            type="text"
-            value={ image }
-            data-testid="edit-input-image"
-            onChange={ ({ target }) => { this.setState({ image: target.value }); } }
-          />
+      <div className="page">
+        <form className="edit">
+          <div id="float-label">
+            <input
+              id="nome"
+              className="login-name-input"
+              type="text"
+              value={ name }
+              data-testid="edit-input-name"
+              onChange={ ({ target }) => { this.setState({ name: target.value }); } }
+            />
+            <label htmlFor="nome">Nome</label>
+          </div>
+          <div id="float-label">
+            <input
+              id="email"
+              className="login-name-input"
+              type="email"
+              value={ email }
+              data-testid="edit-input-email"
+              onChange={ ({ target }) => { this.setState({ email: target.value }); } }
+            />
+            <label htmlFor="email">E-mail</label>
+          </div>
+          <div id="float-label">
+            <input
+              className="login-name-input"
+              id="descricao"
+              type="text"
+              value={ description }
+              data-testid="edit-input-description"
+              onChange={ ({ target }) => {
+                this.setState({ description: target.value });
+              } }
+            />
+            <label htmlFor="descricao">Descrição</label>
+          </div>
+          <div id="float-label">
+            <input
+              className="login-name-input"
+              id="imagem"
+              type="text"
+              value={ image }
+              data-testid="edit-input-image"
+              onChange={ ({ target }) => { this.setState({ image: target.value }); } }
+            />
+            <label htmlFor="imagem">Imagem</label>
+          </div>
           <button
             disabled={ name === '' || description === '' || image === '' }
             type="submit"
@@ -70,8 +93,7 @@ class ProfileEdit extends React.Component {
       </div>
     );
     return (
-      <div data-testid="page-profile-edit">
-        <h1>Editar Perfil</h1>
+      <div data-testid="page-profile-edit" className="pages">
         <Header />
         {loading ? <Loading /> : edit}
         {userCreated && <Redirect to="/profile" />}
