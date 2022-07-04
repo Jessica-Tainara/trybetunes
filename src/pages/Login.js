@@ -35,13 +35,13 @@ class Login extends React.Component {
           style={ {
             width: '500px', marginLeft: '500px', position: 'fixed' } }
         />
-        <img
-          className="icon"
+        <img 
+           className="icon"
           alt="icon"
           src={ disco }
           style={ {
             width: '200px', marginLeft: '150px' } }
-        />
+        /> 
         <form>
           <div id="float-label-login">
             <input

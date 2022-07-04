@@ -6,9 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
           <Content />
-        </div>
       </BrowserRouter>
     );
   }

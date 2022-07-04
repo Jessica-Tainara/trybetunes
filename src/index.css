@@ -7,15 +7,52 @@ body {
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   margin: 0;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Content {
+  height: 100%;
+  width: 100%;
+}
+
 #root{
   display: flex;
+  min-height: 100%;
   width: 100%;
+}
+
+.page-login {
+  align-items: flex-start;
+  background-color: #131315;
+  background-image: url('login.png');  right: -50px;
+  background-repeat: repeat-y;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.page-login form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: space-between;
+  margin-left: 70px;
+}
+
+.icon {
+  filter: invert(87%) sepia(51%) saturate(8%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
