@@ -21,7 +21,6 @@ class Search extends React.Component {
 
   render() {
     const { artista, loading, hasAlbum, found, albuns, nFound } = this.state;
-    console.log(albuns);
     const form = (
       <form className="search">
         <input
