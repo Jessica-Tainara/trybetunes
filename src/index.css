@@ -202,7 +202,7 @@ code {
   width: 100%;
 }
 
-.card {
+/* .card {
   background-color:#181818;
   border-radius: clamp(4px,(var(--column-width,0px) - 32px) * 0.025,8px);
   color: white;
@@ -216,7 +216,7 @@ code {
   padding-block-end: 4px;
   position: relative;
   width: 241.5px;
-}
+} */
 
 .card img {
   border-radius: 3px;
