@@ -38,12 +38,6 @@ code {
   width: 100%;
 }
 
-.pages {
-  display: flex;
-  justify-content: flex-end;
-  width: 1351px;
-}
-
 .page-login {
   align-items: flex-start;
   background-color: #131315;
