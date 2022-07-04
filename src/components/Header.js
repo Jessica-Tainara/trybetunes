@@ -13,6 +13,7 @@ class Header extends React.Component {
 
     this.state = {
       name: '',
+      image: '',
       loading: true,
     };
   }
@@ -20,12 +21,12 @@ class Header extends React.Component {
   async componentDidMount() {
     await getUser()
       .then((data) => {
-        this.setState({ name: data.name, loading: false });
+        this.setState({ name: data.name, image: data.image, loading: false });
       });
   }
 
   render() {
-    const { name, loading } = this.state;
+    const { name, loading, image } = this.state;
     const header = (
       <header id="header" data-testid="header-component">
         <div id="logo" className="inline">
@@ -33,9 +34,8 @@ class Header extends React.Component {
             className="icon"
             alt="icon"
             src={ disco }
-            style={ { width: '50px' } }
+            style={ { width: '100px', marginLeft: '55px' } }
           />
-          <p className="title">TrybeTunes</p>
 
         </div>
         <nav id="nav">
@@ -84,12 +84,24 @@ class Header extends React.Component {
               <p>Perfil</p>
             </div>
           </Link>
+          <img
+            data-testid="profile-image"
+            alt="user"
+            style={ {
+              borderRadius: '100px',
+              width: '30px',
+              height: '30px',
+              position: 'fixed',
+              marginLeft: '0px',
+              marginTop: '200px' } }
+            src={ image || 'https://centerforleg.dk/wp-content/uploads/2021/06/no-profile-picture-icon-13.jpg' }
+          />
           <h2
             data-testid="header-user-name"
             style={ {
               position: 'fixed',
-              marginLeft: '30px',
-              marginTop: '800px',
+              marginLeft: '40px',
+              marginTop: '400px',
             } }
           >
             {loading ? <Loading /> : name }
