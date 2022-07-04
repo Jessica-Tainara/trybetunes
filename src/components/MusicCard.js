@@ -5,12 +5,18 @@ import blackHeartIcon from '../blackHeartIcon.svg';
 
 class MusicCard extends React.Component {
   render() {
-    const { music, onClickCheckbox, check, index } = this.props;
-    const { trackName, previewUrl, trackId } = music;
+    const { music, onClickCheckbox, check, index, page } = this.props;
+    const { trackName, previewUrl, trackId, artworkUrl100, collectionName } = music;
+    const urlImage = String(artworkUrl100).split('/');
+    urlImage.splice(urlImage.length - 1, 1, '50x50bb.jpg');
 
     return (
-      <div className="music">
-
+      <div className={ page ? 'music full' : 'music' }>
+        {page && <img
+          src={ urlImage.join('/') }
+          alt={ music.collectionName }
+          style={ { left: '85px', position: 'absolute', zIndex: '1' } }
+        />}
         <audio
           data-testid="audio-component"
           className="audio"
@@ -21,9 +27,20 @@ class MusicCard extends React.Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
-        <p className="number">{index}</p>
+        <span className="number">{index}</span>
 
         <p className="music-title">{trackName}</p>
+        {page
+        && (
+          <span
+            style={ {
+              left: '500px',
+              position: 'absolute',
+              zIndex: '1',
+              fontSize: '13px' } }
+          >
+            {collectionName}
+          </span>)}
         <button type="button" className="favorite-button">
           <input
             type="image"
@@ -41,6 +58,7 @@ class MusicCard extends React.Component {
 }
 MusicCard.propTypes = {
   music: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired,
   onClickCheckbox: PropTypes.func.isRequired,
   check: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,

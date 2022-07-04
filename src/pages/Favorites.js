@@ -21,6 +21,7 @@ class Favorites extends React.Component {
   renderMusic = (music, i) => {
     const prop = {
       music,
+      page: 'favoritas',
       index: 1 + i,
       check: true,
       onClickCheckbox:
@@ -37,6 +38,17 @@ class Favorites extends React.Component {
     const { favoritas, loading } = this.state;
     const section = (
       <div className="page favorites">
+        <div className="top">
+          <p id="number">#</p>
+          <p id="title-music">TITULO</p>
+          <p
+            id="title-album"
+            style={ { left: '500px', position: 'absolute', zIndex: '1' } }
+          >
+            ALBUM
+
+          </p>
+        </div>
         <div className="musics fav">
           {favoritas.map((music, i) => this.renderMusic(music, i))}
         </div>
